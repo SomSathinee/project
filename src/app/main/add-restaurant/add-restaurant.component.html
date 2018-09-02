@@ -1,0 +1,40 @@
+<div>
+  <h1 style="text-align:center;">เพิ่มร้านอาหาร</h1>
+
+
+  <mat-horizontal-stepper [linear]="true" #stepper>
+    <mat-step [stepControl]="firstFormGroup">
+      <form [formGroup]="firstFormGroup">
+        <ng-template matStepLabel>ร้านอาหาร</ng-template>
+        <mat-form-field>
+          <input matInput placeholder="ชื่อร้านอาหาร" formControlName="firstCtrl" required>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+
+    <mat-step [stepControl]="secondFormGroup">
+      <form [formGroup]="secondFormGroup">
+        <ng-template matStepLabel>ที่อยู่ร้านอาหาร</ng-template>
+        <mat-form-field>
+          <input matInput placeholder="ที่อยู่ร้านอาหาร" formControlName="secondCtrl" required>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+    
+    <mat-step>
+      <ng-template matStepLabel>เสร็จเรียบร้อย</ng-template>
+      You are now done.
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button (click)="onClickSave()">บันทึก</button>
+      </div>
+    </mat-step>
+  </mat-horizontal-stepper>
+</div>

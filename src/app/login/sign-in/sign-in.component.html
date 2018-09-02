@@ -1,0 +1,26 @@
+<div style=' background-image:url("assets/picture/login-bg.png");height:100%;'></div>
+<div class="center-vertical">
+  <mat-card class="example-card">
+    <div class="container">
+      <img mat-card-image src="assets/picture/login-head.svg">
+      <b class="centered">My Order</b>
+    </div>
+
+    <form class="center" autocomplete="off" novalidate [formGroup]="form">
+
+      <mat-form-field>
+        <input matInput placeholder="Email" formControlName="email" class="form-control">
+      </mat-form-field>
+      <p>
+        <mat-form-field>
+          <input matInput placeholder="Password" formControlName="password" class="form-control">
+        </mat-form-field>
+      </p>
+    </form>
+    <div style="text-align:center;">
+    <button mat-button (click) = "onclickForgotPassword()">ลืมรหัสผ่าน</button>
+    <button mat-flat-button color="primary" (click)="onClickSignIn()">เข้าสู่ระบบ</button>
+    <button mat-flat-button color="primary" (click)="onClickRegister()">สมัครสมาชิก</button>
+  </div>
+  </mat-card>
+</div>

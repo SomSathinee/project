@@ -1,0 +1,12 @@
+<form autocomplete="off" novalidate class="form" [formGroup]="form">
+
+  <mat-form-field>
+    <input matInput placeholder="Email" formControlName="email" class="form-control">
+  </mat-form-field>
+  <p>
+    <mat-form-field>
+      <input matInput placeholder="Password" formControlName="password" class="form-control" >
+    </mat-form-field>
+  </p>
+  <button mat-raised-button color="primary"  (click)="onClickSignIn()" >Register</button>
+</form>
