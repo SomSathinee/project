@@ -1,27 +1,33 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, ChangeDetectorRef } from '@angular/core';
+import { BreakpointObserver, Breakpoints, BreakpointState, MediaMatcher } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
-import { AuthService } from '../../shared/services/auth.service';
-import { AngularFireDatabase } from 'angularfire2/database';
+import { map } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-home',
+  selector: 'app-/main/home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent  implements OnDestroy {
 
-  userItem: Observable<any>;
-  constructor(private authService: AuthService, private afDb: AngularFireDatabase) { 
-    this.userItem = afDb.object(`users/${this.authService.authInfo$.value.$uid}/profile`).valueChanges();
+  mobileQuery: MediaQueryList;
+
+ 
+
+
+  private _mobileQueryListener: () => void;
+
+  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher,private route: Router) {
+    this.mobileQuery = media.matchMedia('(max-width: 600px)');
+    this._mobileQueryListener = () => changeDetectorRef.detectChanges();
+    this.mobileQuery.addListener(this._mobileQueryListener);
+   // route.navigate(['/register'])
   }
-  ngOnInit() {
+
+  ngOnDestroy(): void {
+    this.mobileQuery.removeListener(this._mobileQueryListener);
   }
 
-
-  onClickSignIn() {
-
-    this.authService.logout()
-     
-
-  }
+  shouldRun = true;
 }

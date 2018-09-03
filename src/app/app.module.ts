@@ -19,13 +19,14 @@ import { RegisterComponent } from './login/register/register.component';
 
 
 
-import {MatInputModule, MatButtonModule, MatCardModule, MatDividerModule, MatListModule, MatIconModule, MatStepperModule} from '@angular/material';
+import {MatInputModule, MatButtonModule, MatCardModule, MatDividerModule, MatListModule, MatIconModule, MatStepperModule, MatToolbarModule, MatSidenavModule} from '@angular/material';
 
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HomeComponent } from './main/home/home.component';
 import { FogotPasswordComponent } from './login/fogot-password/fogot-password.component';
 import { SelectRestaurantComponent } from './main/select-restaurant/select-restaurant.component';
 import { AddRestaurantComponent } from './main/add-restaurant/add-restaurant.component';
+import { LayoutModule } from '@angular/cdk/layout';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,10 @@ import { AddRestaurantComponent } from './main/add-restaurant/add-restaurant.com
     MatDividerModule,
     MatListModule,
     MatIconModule,
-    MatStepperModule
+    MatStepperModule,
+    LayoutModule,
+    MatToolbarModule,
+    MatSidenavModule
 
   ],
   providers: [AuthGuard,AuthService],
