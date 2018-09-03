@@ -1,20 +1,15 @@
-import { Component, OnDestroy, ChangeDetectorRef } from '@angular/core';
-import { BreakpointObserver, Breakpoints, BreakpointState, MediaMatcher } from '@angular/cdk/layout';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { Component, OnInit, ChangeDetectorRef, OnDestroy } from '@angular/core';
+import { MediaMatcher } from '@angular/cdk/layout';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-/main/home',
+  selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent  implements OnDestroy {
+export class HomeComponent implements OnDestroy {
 
   mobileQuery: MediaQueryList;
-
- 
-
 
   private _mobileQueryListener: () => void;
 
@@ -30,4 +25,6 @@ export class HomeComponent  implements OnDestroy {
   }
 
   shouldRun = true;
+
+ 
 }

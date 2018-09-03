@@ -4,22 +4,51 @@
     <h1 class="example-app-name">My Order</h1>
   </mat-toolbar>
 
-  <mat-sidenav-container class="example-sidenav-container"
-                         [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
-    <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
-                 [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
+  <mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+    <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
+      <div style="height: 150px; background-color: blue; position:relative;" >
+        <!--<img src="src\assets\picture\login-bg.svg"> -->
+        <img class="corrner" >
+
+      </div>
       <mat-nav-list>
-      <!--  <a mat-list-item routerLink="#" *ngFor="let nav of fillerNav">{{nav}}</a> -->
-      <a mat-list-item routerLink="/register" routerLinkActive="active">item</a>
+        <!--  <a mat-list-item routerLink="#" *ngFor="let nav of fillerNav">{{nav}}</a> -->
+        <a mat-list-item routerLink="/home/dashbord" routerLinkActive="active">
+          <mat-icon class="paddingIcon">home</mat-icon>หน้าแรก
+        </a>
+        <a mat-list-item routerLink="/home/order" routerLinkActive="active">
+          <mat-icon class="paddingIcon">reorder</mat-icon>ออเดอร์ลูกค้า
+        </a>
+        <a mat-list-item routerLink="/home/serve" routerLinkActive="active">
+          <mat-icon class="paddingIcon">send</mat-icon>เสริฟ
+        </a>
+        <a mat-list-item routerLink="/home/payment" routerLinkActive="active">
+          <mat-icon class="paddingIcon">payment</mat-icon>ชำระเงิน
+        </a>
+        <a mat-list-item routerLink="/home/order-history" routerLinkActive="active">
+          <mat-icon class="paddingIcon">history</mat-icon>ประวิติออเดอร์
+        </a>
+        <a mat-list-item routerLink="/home/menu" routerLinkActive="active">
+          <mat-icon class="paddingIcon">restaurant_menu</mat-icon>รายการอาหาร
+        </a>
+        <a mat-list-item routerLink="/home/raw-material" routerLinkActive="active">
+          <mat-icon class="paddingIcon">restaurant</mat-icon>จัดการวัตถุดิบ
+        </a>
+        <a mat-list-item routerLink="/home/restaurant-info" routerLinkActive="active">
+          <mat-icon class="paddingIcon">info</mat-icon>ข้อมูลร้าน
+        </a>
+        <a mat-list-item routerLink="/home/summary" routerLinkActive="active">
+          <mat-icon class="paddingIcon">account_balance_wallet</mat-icon>สรุปยอด
+        </a>
       </mat-nav-list>
-      
+
     </mat-sidenav>
 
-    <mat-sidenav-content>
+    <mat-sidenav-content style="padding :16px;">
       <p>Componant</p>
-      <app-register></app-register>
+
+      <router-outlet></router-outlet>
 
     </mat-sidenav-content>
   </mat-sidenav-container>
 </div>
-

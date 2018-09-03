@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { OnInit, NgModule, Component } from '@angular/core';
+
 
 @Component({
   selector: 'app-dashboard',

@@ -19,24 +19,27 @@ import { RegisterComponent } from './login/register/register.component';
 
 
 
-import {MatInputModule, MatButtonModule, MatCardModule, MatDividerModule, MatListModule, MatIconModule, MatStepperModule, MatToolbarModule, MatSidenavModule} from '@angular/material';
+import { MatInputModule, MatButtonModule, MatCardModule, MatDividerModule, MatListModule, MatIconModule, MatStepperModule, MatToolbarModule, MatSidenavModule } from '@angular/material';
 
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { HomeComponent } from './main/home/home.component';
+
 import { FogotPasswordComponent } from './login/fogot-password/fogot-password.component';
 import { SelectRestaurantComponent } from './main/select-restaurant/select-restaurant.component';
 import { AddRestaurantComponent } from './main/add-restaurant/add-restaurant.component';
 import { LayoutModule } from '@angular/cdk/layout';
+import { HomeModule } from './main/home/home.module';
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
     SignInComponent,
     RegisterComponent,
-    HomeComponent,
     FogotPasswordComponent,
     SelectRestaurantComponent,
     AddRestaurantComponent
+
   ],
   imports: [
     BrowserModule,
@@ -56,10 +59,11 @@ import { LayoutModule } from '@angular/cdk/layout';
     MatStepperModule,
     LayoutModule,
     MatToolbarModule,
-    MatSidenavModule
+    MatSidenavModule, 
+    HomeModule
 
   ],
-  providers: [AuthGuard,AuthService],
+  providers: [AuthGuard, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
