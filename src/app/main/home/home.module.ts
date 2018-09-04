@@ -11,7 +11,9 @@ import {
   MatIconModule,
   MatStepperModule,
   MatToolbarModule,
-  MatSidenavModule
+  MatSidenavModule,
+  MatBadgeModule,
+  MatMenuModule
 } from '@angular/material';
 import { DashboardComponent } from './menu/dashboard/dashboard.component';
 import { OrderComponent } from './menu/order/order.component';
@@ -36,7 +38,9 @@ import { SummaryComponent } from './menu/summary/summary.component';
     MatIconModule,
     MatStepperModule,
     MatToolbarModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatBadgeModule,
+    MatMenuModule
   ],
   declarations: [
     HomeComponent,

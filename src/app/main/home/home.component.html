@@ -2,13 +2,29 @@
   <mat-toolbar color="primary" class="example-toolbar">
     <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
     <h1 class="example-app-name">My Order</h1>
+    <span class="example-spacer"></span>
+
+    <button mat-button [matMenuTriggerFor]="menu" style="border-radius: 50px; margin: 16px; height: 50px;">
+      <img src="https://scontent.fbkk14-1.fna.fbcdn.net/v/t1.0-9/37208281_497837380665473_2336000465679941632_n.jpg?_nc_cat=0&oh=f8ba6bad0a12628c93622d09fdf62758&oe=5BC92133"
+        style="border-radius: 50%; width: 40px;height: 40px; vertical-align:middle; "> Hello! Nattapong
+      <mat-icon>expand_more</mat-icon>
+    </button>
+
+    <button mat-icon-button (click)="noti.toggle()"><mat-icon matBadge="15" matBadgeColor="warn">notifications</mat-icon></button>
+
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item><mat-icon>person</mat-icon>ข้อมูลส่วนตัว</button>
+      <button mat-menu-item (click)="onClickLogout()"><mat-icon>input</mat-icon>ออกจากระบบ</button>
+    </mat-menu>
+
+
   </mat-toolbar>
 
   <mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
     <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
-      <div style="height: 150px; background-color: blue; position:relative;" >
+      <div style="height: 150px; background-color: blue; position:relative;">
         <!--<img src="src\assets\picture\login-bg.svg"> -->
-        <img class="corrner" >
+        <img class="corrner">
 
       </div>
       <mat-nav-list>
@@ -43,7 +59,7 @@
       </mat-nav-list>
 
     </mat-sidenav>
-
+    <mat-sidenav  #noti mode="side"position="end">Sidenav content</mat-sidenav>
     <mat-sidenav-content style="padding :16px;">
       <p>Componant</p>
 
