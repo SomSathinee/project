@@ -1,3 +1,59 @@
-<p>
-  raw-material works!
-</p>
+<div style="width:1468px;  margin-top: 20px; margin-left: 16px" >
+  
+    <h3>จัดการวัตถุดิบ</h3>
+    <table mat-table [dataSource]="dataSource" style="width: 100%;font-size: 16px;  " >
+
+      <!-- Checkbox Column -->
+      <ng-container matColumnDef="select" style="font-size: 16px;  ">
+        <th mat-header-cell *matHeaderCellDef style="width: 130px;" >
+          <mat-checkbox (change)="$event ? masterToggle() : null"
+                        [checked]="selection.hasValue() && isAllSelected()"
+                        [indeterminate]="selection.hasValue() && !isAllSelected()">
+          </mat-checkbox>
+        </th>
+        <td mat-cell *matCellDef="let row">
+          <mat-checkbox (click)="$event.stopPropagation()"
+                        (change)="$event ? selection.toggle(row) : null"
+                        [checked]="selection.isSelected(row)">
+          </mat-checkbox>
+        </td>
+      </ng-container>
+    
+      <!-- Position Column -->
+      <ng-container matColumnDef="position" >
+        <th mat-header-cell *matHeaderCellDef style="font-size: 18px;   "> ลำดับ </th>
+        <td mat-cell *matCellDef="let element"  style="font-size: 16px;  "> {{element.position}} </td>
+      </ng-container>
+    
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef style="font-size: 18px;  " > รายการวัตถุดิบ </th>
+        <td mat-cell *matCellDef="let element"  style="font-size: 16px;  "> {{element.name}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef style="font-size: 18px;  "> สถานะ </th>
+        <td mat-cell *matCellDef="let element"  style="font-size: 16px;  "> {{element.status}} </td>
+      </ng-container>
+    
+      <!-- Weight Column -->
+      <ng-container matColumnDef="weight">
+        <th mat-header-cell *matHeaderCellDef style="font-size: 18px;  "> Weight </th>
+        <td mat-cell *matCellDef="let element"  style="font-size: 16px;  "> {{element.weight}} </td>
+      </ng-container>
+    
+    
+    
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"
+          (click)="selection.toggle(row)">
+      </tr>
+    </table><p></p>
+
+    <div class="w3-display-bottomright">
+      <button mat-raised-button style="margin-right: 27px; background-color:#388E3C;color:white ;  " >บันทึก</button>
+    </div>
+   
+  
+
+</div>

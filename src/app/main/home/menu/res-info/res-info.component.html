@@ -1,3 +1,141 @@
-<p>
-  res-info works!
-</p>
+<div class="w3-display-topmiddle">
+  <table style="bottom: auto;">
+    <tr>
+      <td colspan="2">
+        <mat-card s>
+          <img src="https://th.readme.me/f/13384/59fed98651fc4f34c8397851.jpg" style=" width: 100%; height:250px; margin: 0;">
+          <div style="text-align: center">ข้อมูลร้าน<mat-icon class="paddingIcon" style="font-size: 20px">info</mat-icon>
+            <br>
+            <div style="font-size: 25px">ร้าน น้องส้มไก่ย่าง </div>
+          </div>
+
+          <!--<form class="example-form">
+           <mat-form-field class="example-full-width">
+              <input matInput placeholder="ร้าน" value="น้องส้มไก่ย่าง" disabled style="color:black">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+                <textarea matInput placeholder="เกี่ยวกับร้าน" style="color:black"  value = "ร้านครัวลุงหิน อยู่ละแวกหลังมหาวิทยาลัยเทคโนโลยีสุรนารี ทางประตู 3 ขับเรียบทางออกมาเรื่อยๆร้านจะอยู่ขวามือเป็นธุรกิจแบบครอบครัวที่ทำกันมานานแล้ว มีคนในครอบครัวช่วยๆกันทำกับข้าว" disabled  ></textarea>
+              </mat-form-field>
+          </form>-->
+          <!-- <button mat-icon-button  [disabled]="disable" >  <mat-icon class="paddingIcon" style="font-size: 20px">info</mat-icon>-->
+        </mat-card>
+      </td>
+    </tr>
+    <tr>
+      <td style="width: 50% ; ">
+
+        <mat-card style="height: full;">
+          <div class="w3-display-topright">
+            <button mat-icon-button (click)="aboutdialog()">
+              <mat-icon style="color: #848484">edit</mat-icon>
+            </button> </div>
+          <div style="font-size: 20px">เกี่ยวกับ</div>
+          <div>
+            คำอธิบาย
+            <br>
+            {{about}} </div>
+
+        </mat-card>
+
+      </td>
+      <td style="height: 100%;">
+        <mat-card style="height: 185px ">
+          <div class="w3-display-topright">
+            <button mat-icon-button>
+              <mat-icon style="color: #848484">edit</mat-icon>
+            </button> </div>
+          <div style="font-size: 20px">ข้อมูลการติดต่อ</div>
+          <br> ติดต่อคุณ ส้ม สุดส้วย
+          <br> โทรศัพท์ : 09-0960-6659
+
+
+        </mat-card>
+
+      </td>
+
+    </tr>
+    <tr>
+      <td>
+        <mat-card style="height: 185px ">
+          <div class="w3-display-topright">
+            <button mat-icon-button>
+              <mat-icon style="color: #848484">edit</mat-icon>
+            </button> </div>
+          <div style="font-size: 20px">ช่องทางการชำระเงิน</div>
+          <br> พร้อมเพย์
+          <br> เลขบัญชี
+
+
+        </mat-card>
+      </td>
+      <td>
+        <mat-card style="height:200px ">
+          <div class="w3-display-topright">
+            <button mat-icon-button>
+              <mat-icon style="color: #848484">edit</mat-icon>
+            </button> </div>
+          <div style="font-size: 20px">ที่อยู่ร้าน</div>
+          <br> เลขที่
+          <br> หมู่l
+          <br> ตำบล
+          <br> อำเภอ
+          <br> จังหวัด
+
+
+        </mat-card>
+      </td>
+
+    </tr>
+    <tr>
+      <td colspan="2">
+        <mat-card>
+          <div style="font-size: 20px">พนักงาน</div>
+          <table mat-table [dataSource]="dataSource">
+
+            <!--- Note that these columns can be defined in any order.
+                      The actual rendered columns are set as a property on the row definition" -->
+
+            <!-- Position Column -->
+            <ng-container matColumnDef="position">
+      <th mat-header-cell *matHeaderCellDef> No. </th>
+      <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+      </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="weight">
+        <th mat-header-cell *matHeaderCellDef> </th>
+        <td mat-cell *matCellDef="let element"><img src="https://scontent.fbkk14-1.fna.fbcdn.net/v/t1.0-9/37208281_497837380665473_2336000465679941632_n.jpg?_nc_cat=0&oh=f8ba6bad0a12628c93622d09fdf62758&oe=5BC92133"
+            style="border-radius: 50%; width: 40px;height: 40px; vertical-align:middle; "> </td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> ชื่อ </th>
+        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+      </ng-container>
+
+
+
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="symbol">
+        <th mat-header-cell *matHeaderCellDef> สิทธิ์การใช้งาน/หน้าที่ </th>
+        <td mat-cell *matCellDef="let element"> เจ้าของ </td>
+      </ng-container>
+      <ng-container matColumnDef="edit">
+        <th mat-header-cell *matHeaderCellDef> แก้ไข </th>
+        <td mat-cell *matCellDef="let element"> <button mat-icon-button>
+            <mat-icon style="color: #848484">edit</mat-icon>
+          </button> </td>
+      </ng-container>
+
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  </mat-card>
+  </td>
+  </tr>
+
+  </table>
+</div>

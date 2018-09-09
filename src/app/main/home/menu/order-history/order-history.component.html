@@ -1,3 +1,99 @@
-<p>
-  order-history works!
-</p>
+<div class="w3-display-topmiddle"  style="width:60%; height: 100%;" >
+  <mat-accordion>
+    
+    <div style="text-align: left; width: 100%;">
+        <h3>ประวัติออร์เดอร์</h3>
+      <mat-button-toggle-group name="fontStyle"  >
+        <mat-button-toggle value="bold">รายวัน</mat-button-toggle>
+        <mat-button-toggle value="italic">รายเดือน</mat-button-toggle>
+      </mat-button-toggle-group>
+    </div><br>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <table style="width:100%">
+            <tr>
+              <td>
+                ออเดอร์ 1
+              </td>
+              <td >
+
+                10 รายการ
+              </td>
+              <td>
+                520 บาท
+              </td>
+            </tr>
+
+
+          </table>
+        </mat-panel-title>
+
+        <!-- <mat-panel-description>
+          Type your name and age
+        </mat-panel-description> -->
+      </mat-expansion-panel-header>
+
+
+      <table style="width:100%">
+        <tr>
+          <td>
+            จาก
+          </td>
+          <td style=" text-align: center;">
+            สถานะออเดอร์
+          </td>
+          <td>
+            โต๊ะที่ 5
+          </td>
+         
+        </tr>
+
+      </table><p>
+
+
+
+      <table mat-table [dataSource]="dataSource"  style="width: 100%; margin-left: 20px">
+
+        <!--- Note that these columns can be defined in any order.
+                The actual rendered columns are set as a property on the row definition" -->
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="position">
+          <th mat-header-cell *matHeaderCellDef> รายการที่ </th>
+          <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef> ชื่อ </th>
+          <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="weight">
+          <th mat-header-cell *matHeaderCellDef> จำนวน </th>
+          <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="symbol">
+          <th mat-header-cell *matHeaderCellDef> ราคา </th>
+          <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+          <td>  </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+
+
+    </mat-expansion-panel>
+   
+    
+  </mat-accordion>
+
+
+  <mat-paginator [length]="length" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions" (page)="pageEvent = $event">
+  </mat-paginator>
+</div>

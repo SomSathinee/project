@@ -5,12 +5,12 @@
 export const environment = {
   production: false,
   firebase:{
-    apiKey: "AIzaSyDW9de7GnP7LTkTmeZbQyWt7J4IhzN6nfo",
-    authDomain: "restaurant-system-9c921.firebaseapp.com",
-    databaseURL: "https://restaurant-system-9c921.firebaseio.com",
-    projectId: "restaurant-system-9c921",
-    storageBucket: "restaurant-system-9c921.appspot.com",
-    messagingSenderId: "754589913461"
+    apiKey: "AIzaSyDLc4qlRWp2ueHzPOalp82nbdjrhvgMaOQ",
+    authDomain: "test-d51f7.firebaseapp.com",
+    databaseURL: "https://test-d51f7.firebaseio.com",
+    projectId: "test-d51f7",
+    storageBucket: "test-d51f7.appspot.com",
+    messagingSenderId: "258074997297"
   }
 };
 

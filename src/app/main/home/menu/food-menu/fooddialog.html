@@ -1,0 +1,68 @@
+<h1 mat-dialog-title>
+    Hi</h1>
+<div mat-dialog-content>
+
+    <form>
+        <mat-form-field>
+            <input matInput placeholder="ชื่อเมนู" value="กระเพรา" required><p>
+
+        </mat-form-field>
+        <mat-form-field>
+
+            <input matInput placeholder="ราคา" value="0" required><p></p>
+        </mat-form-field>
+        <p>
+            <div><h5>คุณมีวัตถุดิบสำหรับเมนูนี้หรือไม่</h5>
+            (เช่น กระเพาอาจมีวัตถุดิบ
+            <br>ที่ลูกค้าสามารถเลือกได้ คือ ไก่ หมูจะได้เมนูเป็น
+            <br>กระเพาไก่ หรือกระเพาหมู)
+        </div>
+            <P>
+                <p>
+            <mat-radio-group>
+                <mat-radio-button  value="1" (click)="openInput()">มี</mat-radio-button>
+                <mat-radio-button style="margin-left: 15px" value="2" (click)="closeInput()" >ไม่มี</mat-radio-button>
+            </mat-radio-group>
+                <p>
+            <div *ngIf="have">
+                    <mat-form-field>
+                        <table>
+                                <tr>
+                                    <td>
+                                            <input matInput placeholder="ป้อนวัตถุดิบ"  required>
+                                    </td>
+                                    <td>
+                                            <button mat-icon-button style="margin-left:30px" ><mat-icon>add</mat-icon></button>
+                                    </td>
+                                </tr>
+                        </table>
+                        </mat-form-field>        
+            </div>
+
+            <form class="example-form">
+                    <mat-form-field class="example-full-width">
+                      <input type="text" placeholder="ประเภทของเมนู" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
+                      <mat-autocomplete #auto="matAutocomplete">
+                        <mat-option *ngFor="let option of options" [value]="option">
+                          {{option}}
+                        </mat-option>
+                      </mat-autocomplete>
+                    </mat-form-field>
+                  </form>
+    </form>
+
+
+
+
+
+</div>
+
+
+
+
+
+
+<div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">No Thanks</button>
+    <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>Ok</button>
+</div>

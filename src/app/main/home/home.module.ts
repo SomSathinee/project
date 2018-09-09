@@ -13,19 +13,29 @@ import {
   MatToolbarModule,
   MatSidenavModule,
   MatBadgeModule,
-  MatMenuModule
+  MatMenuModule,
+  MatTableModule,
+  MatCheckboxModule,
+  MatPaginatorModule,
+  MatExpansionModule,
+  MatButtonToggleModule,
+  MatDialogModule,
+  MatRadioModule,
+  MatSelectModule,
+  MatAutocompleteModule,
+  MatGridListModule
+  
 } from '@angular/material';
 import { DashboardComponent } from './menu/dashboard/dashboard.component';
-import { OrderComponent } from './menu/order/order.component';
+import { OrderComponent, DialogOrder } from './menu/order/order.component';
 import { ServeComponent } from './menu/serve/serve.component';
-import { PaymentComponent } from './menu/payment/payment.component';
+import { PaymentComponent,DialogPayment } from './menu/payment/payment.component';
 import { OrderHistoryComponent } from './menu/order-history/order-history.component';
-import { FoodMenuComponent } from './menu/food-menu/food-menu.component';
+import { FoodMenuComponent, Fooddialog } from './menu/food-menu/food-menu.component';
 import { RawMaterialComponent } from './menu/raw-material/raw-material.component';
-import { ResInfoComponent } from './menu/res-info/res-info.component';
+import { ResInfoComponent, Aboutdialog } from './menu/res-info/res-info.component';
 import { SummaryComponent } from './menu/summary/summary.component';
-
-
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 @NgModule({
   imports: [
     CommonModule,
@@ -40,7 +50,20 @@ import { SummaryComponent } from './menu/summary/summary.component';
     MatToolbarModule,
     MatSidenavModule,
     MatBadgeModule,
-    MatMenuModule
+    MatMenuModule,
+    MatTableModule,
+    MatCheckboxModule,
+    MatPaginatorModule,
+    MatExpansionModule,
+    MatTableModule,
+    MatButtonToggleModule,
+    MatDialogModule,
+    FormsModule,
+    MatRadioModule,
+    MatSelectModule,
+    MatAutocompleteModule,
+    ReactiveFormsModule,
+    MatGridListModule
   ],
   declarations: [
     HomeComponent,
@@ -52,7 +75,25 @@ import { SummaryComponent } from './menu/summary/summary.component';
     FoodMenuComponent,
     RawMaterialComponent,
     ResInfoComponent,
-    SummaryComponent
+    SummaryComponent,
+    DialogOrder,
+    Fooddialog,
+    DialogPayment,
+    PaymentComponent,
+    Aboutdialog
+    
+    
+  ],
+  entryComponents:[
+    OrderComponent,
+    DialogOrder,
+    FoodMenuComponent,
+    Fooddialog,
+    PaymentComponent,
+    DialogPayment,
+    ResInfoComponent,
+    Aboutdialog
+
   ]
 })
 export class HomeModule { }

@@ -24,7 +24,7 @@ export class HomeComponent implements OnDestroy {
   ngOnDestroy(): void {
     this.mobileQuery.removeListener(this._mobileQueryListener);
   }
-  shouldRun = true;
+ 
 
    private onClickLogout(){
       this.auth.logout()
