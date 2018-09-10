@@ -33,7 +33,11 @@ import { PaymentComponent,DialogPayment } from './menu/payment/payment.component
 import { OrderHistoryComponent } from './menu/order-history/order-history.component';
 import { FoodMenuComponent, Fooddialog } from './menu/food-menu/food-menu.component';
 import { RawMaterialComponent } from './menu/raw-material/raw-material.component';
-import { ResInfoComponent, Aboutdialog } from './menu/res-info/res-info.component';
+import { ResInfoComponent,
+         Aboutdialog,
+         Contactdialog,
+         Paymentdialog
+        } from './menu/res-info/res-info.component';
 import { SummaryComponent } from './menu/summary/summary.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 @NgModule({
@@ -80,7 +84,9 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     Fooddialog,
     DialogPayment,
     PaymentComponent,
-    Aboutdialog
+    Aboutdialog,
+    Contactdialog,
+    Paymentdialog
     
     
   ],
@@ -92,7 +98,9 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     PaymentComponent,
     DialogPayment,
     ResInfoComponent,
-    Aboutdialog
+    Aboutdialog,
+    Contactdialog,
+    Paymentdialog
 
   ]
 })

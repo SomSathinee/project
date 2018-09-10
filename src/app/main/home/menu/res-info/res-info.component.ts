@@ -1,5 +1,10 @@
-import { Component, OnInit, Inject,Input } from '@angular/core';
+import { Component, OnInit, Inject, Input } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { AngularFireDatabase, AngularFireList, AngularFireAction } from 'angularfire2/database';
+import { AuthService } from '../../../../shared/services/auth.service';
+import { Observable, BehaviorSubject } from 'rxjs';
+import {FormControl, Validators} from '@angular/forms';
+
 export interface PeriodicElement {
   name: string;
   position: number;
@@ -30,15 +35,29 @@ export class ResInfoComponent {
   dataSource = ELEMENT_DATA;
   animal: string;
   name: string;
-  public about:string =  "ร้านครัวลุงหิน อยู่ละแวกหลังมหาวิทยาลัยเทคโนโลยีสุรนารี ทางประตู 3ขับเรียบทางออกมาเรื่อยๆร้านจะอยู่ขวามือเป็นธุรกิจแบบครอบครัวที่ทำกันมานานแล้วมีคนในครอบครัวช่วยๆกันทำกับข้าว" 
+  about: string = "ร้านครัวลุงหิน อยู่ละแวกหลังมหาวิทยาลัยเทคโนโลยีสุรนารี ทางประตู 3ขับเรียบทางออกมาเรื่อยๆร้านจะอยู่ขวามือเป็นธุรกิจแบบครอบครัวที่ทำกันมานานแล้วมีคนในครอบครัวช่วยๆกันทำกับข้าว"
   constructor(public dialog: MatDialog) { }
 
 
   aboutdialog(): void {
-    const dialogRef = this.dialog.open(Aboutdialog, {
+    const dialogRef = this.dialog.open(Aboutdialog);
 
-      data: { name: this.name, animal: this.animal }
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.animal = result;
     });
+  }
+
+  contactdialog(): void {
+    const dialogRef = this.dialog.open(Contactdialog);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.animal = result;
+    });
+  }
+  paymentdialog(): void {
+    const dialogRef = this.dialog.open(Paymentdialog);
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
@@ -56,8 +75,7 @@ export class ResInfoComponent {
   styleUrls: ['./res-info.component.css']
 })
 export class Aboutdialog {
-
-    @Input() about:string;
+  about = "ร้านครัวลุงหิน อยู่ละแวกหลังมหาวิทยาลัยเทคโนโลยีสุรนารี ทางประตู 3ขับเรียบทางออกมาเรื่อยๆร้านจะอยู่ขวามือเป็นธุรกิจแบบครอบครัวที่ทำกันมานานแล้วมีคนในครอบครัวช่วยๆกันทำกับข้าว"
   constructor(
     public dialogRef: MatDialogRef<Aboutdialog>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData) { }
@@ -65,8 +83,31 @@ export class Aboutdialog {
   onNoClick(): void {
     this.dialogRef.close();
   }
+}
 
+@Component({
+  selector: 'contactdialog',
+  templateUrl: './dialog/contactdialog.html',
+  styleUrls: ['./res-info.component.css']
+})
+export class Contactdialog {
+  
+  constructor(public dialogRef: MatDialogRef<Contactdialog>,
+   
+   ) { }
 
-
-
+  
+}
+@Component({
+  selector: 'paymentdialog',
+  templateUrl: './dialog/paymentdialog.html',
+  styleUrls: ['./res-info.component.css']
+})
+export class Paymentdialog {
+  
+  constructor(public dialogRef: MatDialogRef<Paymentdialog>,
+    
+   ) { }
+  
+  
 }

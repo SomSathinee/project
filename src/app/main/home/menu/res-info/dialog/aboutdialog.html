@@ -1,4 +1,11 @@
-<mat-card>
+<div style="width:400px;height: auto">
+    <div style="font-size: 20px">เกี่ยวกับ</div>
+    <p>
+            <mat-form-field class="example-full-width">
+        <textarea  matInput placeholder="แก้ไข" [(ngModel)] = "about"> </textarea>
+        </mat-form-field><p>
+    <div style="float: right"> <button  mat-raised-button color="primary" (click)="onNoClick()"
+        (click)="editabout()"
+         >บันทึก </button> </div>
 
-    somsomsomsomsom
-</mat-card>
+</div>
