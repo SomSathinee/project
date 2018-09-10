@@ -36,7 +36,9 @@ import { RawMaterialComponent } from './menu/raw-material/raw-material.component
 import { ResInfoComponent,
          Aboutdialog,
          Contactdialog,
-         Paymentdialog
+         Paymentdialog,
+         Addressdialog,
+         AddEmpdialog
         } from './menu/res-info/res-info.component';
 import { SummaryComponent } from './menu/summary/summary.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -86,7 +88,9 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     PaymentComponent,
     Aboutdialog,
     Contactdialog,
-    Paymentdialog
+    Paymentdialog,
+    Addressdialog,
+    AddEmpdialog
     
     
   ],
@@ -100,7 +104,9 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     ResInfoComponent,
     Aboutdialog,
     Contactdialog,
-    Paymentdialog
+    Paymentdialog,
+    Addressdialog,
+    AddEmpdialog
 
   ]
 })

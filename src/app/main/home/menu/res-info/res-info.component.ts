@@ -1,10 +1,6 @@
-import { Component, OnInit, Inject, Input } from '@angular/core';
+import { Component,  Inject } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import { AngularFireDatabase, AngularFireList, AngularFireAction } from 'angularfire2/database';
-import { AuthService } from '../../../../shared/services/auth.service';
-import { Observable, BehaviorSubject } from 'rxjs';
-import {FormControl, Validators} from '@angular/forms';
-
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export interface PeriodicElement {
   name: string;
   position: number;
@@ -65,6 +61,22 @@ export class ResInfoComponent {
     });
   }
 
+  addressdialog(): void {
+    const dialogRef = this.dialog.open(Addressdialog);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.animal = result;
+    });
+  }
+  addempdialog(): void {
+    const dialogRef = this.dialog.open(AddEmpdialog);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.animal = result;
+    });
+  }
 }
 
 
@@ -109,5 +121,42 @@ export class Paymentdialog {
     
    ) { }
   
+   onNoClick(): void {
+    this.dialogRef.close();
+  }
+}
+
+
+@Component({
+  selector: 'addressdialog',
+  templateUrl: './dialog/addressdialog.html',
+  styleUrls: ['./res-info.component.css']
+})
+export class Addressdialog {
+  
+  constructor(public dialogRef: MatDialogRef<Addressdialog>,
+    
+   ) { }
+   onNoClick(): void {
+    this.dialogRef.close();
+  }
+  
+}
+
+
+@Component({
+  selector: 'add-emp-dialog',
+  templateUrl: './dialog/add-emp-dialog.html',
+  styleUrls: ['./res-info.component.css']
+})
+export class AddEmpdialog {
+  
+
+  constructor(public dialogRef: MatDialogRef<AddEmpdialog>,
+    
+   ) { }
+   onNoClick(): void {
+    this.dialogRef.close();
+  }
   
 }
