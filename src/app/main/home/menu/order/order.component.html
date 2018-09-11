@@ -1,37 +1,60 @@
 <div class="w3-display-topmiddle">
 
+  <div style="font-size: 25px; text-align: center; margin-top: 8px;line-height: 40pt" >
+    <strong> <mat-icon style="color: #848484">edit</mat-icon> ออเดอร์ลูกค้า </strong>
+  </div>
   <table style="color: #707070;">
-    <tr>
-      <td style="width:30%;">
-        สถานะออเดอร์
-        <div>
+    <tr style="text-align: center;">
+      <td style="width:30%; ">
+        
+        <mat-card style="margin-right: 16px">
+          รอคิว
+          <strong><div style="color: red; text-align: center;font-size: 24px">50</div></strong>
+        </mat-card>
+       </td>
+       <td style="width:30%;">
+       
+        <mat-card style="margin-right: 16px">
+          กำลังทำ
+          <strong><div style="color: rgb(206, 206, 0); text-align: center;font-size: 24px">50</div></strong> 
+        </mat-card>
+       </td>
+       <td style="width:30%;">
+       
+        <mat-card>
+          เสร็จแล้ว
+         <strong> <div style="color: green; text-align: center;font-size: 24px">50</div></strong>
+        </mat-card>
+      
+
+        <!--<div >
           <table>
-            <tr>
-              <td>
+            <tr >
+              <td >
                 <mat-card>
-                  ออร์เดอร์ที่รอคิว
+                  รอคิว
                   <h5 style="color: red; text-align: center">50</h5>
                 </mat-card>
               </td>
               <td>
                 <mat-card>
-                  ออร์เดอร์ที่กำลังทำ
-                  <h5 style="color: red; text-align: center">0</h5>
+                  กำลังทำ
+                  <h5 style="color: yellow; text-align: center">0</h5>
                 </mat-card>
               </td>
               <td>
                 <mat-card>
-                  ออร์เดอร์ที่ชำระเงินแล้ว 
-                  <h5 style="color: red; text-align: center">50</h5>
+                  ชำระเงินแล้ว
+                  <h5 style="color: green; text-align: center">50</h5>
                 </mat-card>
               </td>
             </tr>
           </table>
-        </div>
+        </div>-->
       </td>
     </tr>
     <tr>
-      <td style="height: 700 ;">
+      <td style="height: 700 ;" colspan="3">
         <div style="text-valign: top">
           <h6 style="text-align: center">ออร์เดอร์ใหม่</h6>
           <div *ngFor="let order of orders1 | async">
@@ -46,7 +69,8 @@
                   </td><img src="https://img.kapook.com/u/surauch/cook/Easy20.jpg" style="border-radius: 50%; width: 60px;height: 60px; vertical-align:middle; ">
                   <td>
                     <div class="td1">
-                      ออร์เดอร์ที่ <span>{{order.orderNumber}}</span><br> โต๊ะที่ <span> 5 </span> <br> สถานะ <span style="color: red;">{{order.status}}</span>
+                      ออร์เดอร์ที่ <span>{{order.orderNumber}}</span><br> โต๊ะที่ <span> 5 </span> <br> สถานะ <span
+                        style="color: red;">{{order.status}}</span>
                     </div>
                   </td>
                   <td>

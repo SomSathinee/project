@@ -1,60 +1,76 @@
-
-
-    <span> ออร์เดอร์ที่ 5 </span>
-    <span style="float: right;margin-right: 20px"> โต๊ะที่ 5 </span><p>
-        <span> จาก </span><p>
-            <span> สถานะออเดอร์ </span>
-            <mat-dialog-content class="mat-typography">
-            <table mat-table [dataSource]="dataSource" style="width: 520px; background-color: #E7FDE8;  ">
+<span> ออร์เดอร์ที่ 5 </span>
+<span style="float: right;margin-right: 20px"> โต๊ะที่ 5 </span>
+<p>
+    <span> จาก </span>
+    <p>
+        <span> สถานะออเดอร์ </span>
+        <mat-dialog-content class="mat-typography">
+            <table mat-table [dataSource]="transactions" style="width: 520px; background-color: rgb(231, 243, 253);  ">
 
                 <!-- Checkbox Column -->
-                <ng-container matColumnDef="select">
-                    <th mat-header-cell *matHeaderCellDef>
-                        <mat-checkbox (change)="$event ? masterToggle() : null" [checked]="selection.hasValue() && isAllSelected()" [indeterminate]="selection.hasValue() && !isAllSelected()">
-                        </mat-checkbox>
-                    </th>
-                    <td mat-cell *matCellDef="let row">
-                        <mat-checkbox (click)="$event.stopPropagation()" (change)="$event ? selection.toggle(row) : null" [checked]="selection.isSelected(row)">
-                        </mat-checkbox>
-                    </td>
-                </ng-container>
 
                 <!-- Position Column -->
                 <ng-container matColumnDef="position">
                     <th mat-header-cell *matHeaderCellDef> No. </th>
-                    <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+                    <td mat-cell *matCellDef="let transactions"> {{transactions.position}} </td>
+                    <td mat-footer-cell *matFooterCellDef> </td>
                 </ng-container>
 
                 <!-- Name Column -->
                 <ng-container matColumnDef="name">
                     <th mat-header-cell *matHeaderCellDef> Name </th>
-                    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                    <td mat-cell *matCellDef="let transactions"> {{transactions.name}} </td>
+                    <td mat-footer-cell *matFooterCellDef> </td>
                 </ng-container>
 
                 <!-- Weight Column -->
-                <ng-container matColumnDef="weight">
-                    <th mat-header-cell *matHeaderCellDef> Weight </th>
-                    <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+                <ng-container matColumnDef="amount">
+                    <th mat-header-cell *matHeaderCellDef> จำนวน </th>
+                    <td mat-cell *matCellDef="let transactions"> {{transactions.amount}} </td>
+                    <td mat-footer-cell *matFooterCellDef> {{getTotalAmount()}} รายการ</td>
+                </ng-container>
+
+                <ng-container matColumnDef="cost">
+                    <th mat-header-cell *matHeaderCellDef> ราคา </th>
+                    <td mat-cell *matCellDef="let transactions"> {{transactions.cost}} บาท </td>
+                    <td mat-footer-cell *matFooterCellDef> <strong> {{getTotalCost()}} บาท </strong> </td>
                 </ng-container>
 
 
-
                 <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selection.toggle(row)">
-                </tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                <tr mat-footer-row *matFooterRowDef="displayedColumns"></tr>
+
             </table>
         </mat-dialog-content>
-        <mat-dialog-actions align="end">
-            <div *ngIf="buttoncomfrim">
-                
-                    <button mat-raised-button class="buttonconfirm" (click)="showbuttonfinish()">รับออเดอร์</button>
-                    <button mat-raised-button class="buttonconfirm2">ยกเลิก</button>
-           
-            </div>
+        <div>
+            ช่องทางการชำระเงิน <br>
+            <mat-button-toggle-group name="payment">
+                <mat-button-toggle (click)="showprompay()"> พร้อมเพย์</mat-button-toggle>
+                <mat-button-toggle (click)="showCash()">เงินสด</mat-button-toggle>
 
-            <div *ngIf="buttonfinish">
-                
-                    <button mat-raised-button mat-dialog-close >เสริฟ!!</button>
+            </mat-button-toggle-group>
+        </div>
 
-            </div>
-        </mat-dialog-actions>
+        <div *ngIf="cash" style="text-align: center">
+            <span style="font-size: 18px; margin-top:8px ">คิดเงิน</span>
+
+            <br>ยอดที่ต้องชำระ<mat-form-field style="text-align: center">
+                <input matInput disabled value="{{getTotalCost()}} บาท">
+            </mat-form-field>
+            <br>ยอดที่ลูกค้าระ<mat-form-field style="text-align: center">
+                <input matInput placeholder="ป้อนจำนวนยอดชำระ" value="1000 " ngDefaultControl>
+            </mat-form-field>
+            <br>ยอดเงินทอน<mat-form-field style="text-align: center" [(ngModel)]="change">
+                <input matInput  disabled   value="500">
+            </mat-form-field>
+
+        </div>
+        <div style="bottom:0">
+            <button style="float: right;margin-top: 16px; margin-right: 8px ;  background-color: #D5D5D5; color:black;"
+                mat-raised-button color="primary">
+                ยกเลิก </button>
+            <button style="float: right;margin-top: 16px; margin-right: 8px" mat-raised-button color="primary"
+            (click)="openSnackBar()" (click)="onNoClick()">
+                ชำระเงินเรียบร้อย </button>
+        </div>

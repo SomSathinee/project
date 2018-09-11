@@ -23,7 +23,8 @@ import {
   MatRadioModule,
   MatSelectModule,
   MatAutocompleteModule,
-  MatGridListModule
+  MatGridListModule,
+  MatSnackBarModule
   
 } from '@angular/material';
 import { DashboardComponent } from './menu/dashboard/dashboard.component';
@@ -69,7 +70,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     MatSelectModule,
     MatAutocompleteModule,
     ReactiveFormsModule,
-    MatGridListModule
+    MatGridListModule,
+    MatSnackBarModule                         
   ],
   declarations: [
     HomeComponent,

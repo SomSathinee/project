@@ -1,74 +1,73 @@
 <div class="w3-display-topmiddle">
 
-    <table style="color: #707070;">
-      <tr>
-        <td style="width:30%;">
-          สถานะออเดอร์
-          <div>
-            <table>
-              <tr>
-                <td>
-                  <mat-card>
-                    ออร์เดอร์ที่รอคิว
-                    <h5 style="color: red; text-align: center">50</h5>
-                  </mat-card>
-                </td>
-                <td>
-                  <mat-card>
-                    ออร์เดอร์ที่กำลังทำ
-                    <h5 style="color: red; text-align: center">0</h5>
-                  </mat-card>
-                </td>
-                <td>
-                  <mat-card>
-                    ออร์เดอร์ที่ชำระเงินแล้ว 
-                    <h5 style="color: red; text-align: center">50</h5>
-                  </mat-card>
-                </td>
-              </tr>
-            </table>
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <td style="height: 700 ;">
-          <div style="text-valign: top">
-            <h6 style="text-align: center">ออร์เดอร์ใหม่</h6>
-            <div *ngFor="let order of orders1 | async">
-  
-              <button mat-raised-button (click)="openDialog()">
-  
-                <table style="top:0;">
-  
-                  <tr>
-                    <td style="padding-right: 15px ">
-  
-                    </td><img src="https://img.kapook.com/u/surauch/cook/Easy20.jpg" style="border-radius: 50%; width: 60px;height: 60px; vertical-align:middle; ">
-                    <td>
-                      <div class="td1">
-                        ออร์เดอร์ที่ <span>{{order.orderNumber}}</span><br> โต๊ะที่ <span> 5 </span> <br> สถานะ <span style="color: red;">{{order.status}}</span>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="td2">
-                        <span>{{order.total}}</span> รายการ
-                      </div>
-                    </td>
-                  </tr>
-                </table>
-              </button>
-  
-            </div>
-          </div>
-        </td>
-  
-      </tr>
-    </table>
-  
-  
+  <div style="font-size: 25px; text-align: center; margin-top: 8px;line-height: 40pt" >
+    <strong> <mat-icon style="color: #848484">payment</mat-icon> ชำระเงิน </strong>
   </div>
-  <div class="w3-left" style="width:20% ;">
-  
-  
-  
-  </div>
+  <table style="color: #707070;">
+    <tr style="text-align: center;">
+      <td style="width:30%; ">
+        
+        <mat-card style="margin-right: 16px">
+          รอคิดเงิน
+          <strong><div style="color: red; text-align: center;font-size: 24px">50</div></strong> ออเดอร์
+        </mat-card>
+       </td>
+       <td style="width:30%;">
+       
+        <mat-card style="margin-right: 16px">
+          กำลังทำ
+          <strong><div style="color: rgb(206, 206, 0); text-align: center;font-size: 24px">50</div></strong> ออเดอร์
+        </mat-card>
+       </td>
+       <td style="width:30%;">
+       
+        <mat-card>
+          ชำระเงินแล้ว
+         <strong> <div style="color: green; text-align: center;font-size: 24px">50</div></strong> ออเดอร์
+        </mat-card>
+   
+      </td>
+    </tr>
+    <tr>
+      <td style="height: 700 ;" colspan="3">
+        <div style="text-valign: top">
+          <h6 style="text-align: center">ออร์เดอร์ใหม่</h6>
+          <div *ngFor="let order of orders1 | async">
+
+            <button mat-raised-button (click)="openDialog()">
+
+              <table style="top:0;">
+
+                <tr>
+                  <td style="padding-right: 15px ">
+
+                  </td><img src="https://img.kapook.com/u/surauch/cook/Easy20.jpg" style="border-radius: 50%; width: 60px;height: 60px; vertical-align:middle; ">
+                  <td>
+                    <div class="td1">
+                      ออร์เดอร์ที่ <span>{{order.orderNumber}}</span><br> โต๊ะที่ <span> 5 </span> <br> สถานะ <span
+                        style="color: red;">{{order.status}}</span>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="td2">
+                      <span>{{order.total}}</span> รายการ
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </button>
+
+          </div>
+        </div>
+      </td>
+
+    </tr>
+  </table>
+
+
+</div>
+<div class="w3-left" style="width:20% ;">
+
+
+
+</div>

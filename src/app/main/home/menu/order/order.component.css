@@ -26,6 +26,8 @@
     }
     .td1{
         width:200px;
+        text-align: left;
+        padding-left:16px ;
     }
     .td2{
         width: 300px;
